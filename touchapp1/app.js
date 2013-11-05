@@ -9,6 +9,10 @@
     changes and its generated code, it will produce a "merge conflict" that you
     will need to resolve manually.
 */
+Ext.Loader.setPath({
+    //'Ext': 'touch/src',
+    'Ext.ux': 'src/ux'
+});
 
 Ext.application({
     name: 'TouchApp1',
@@ -17,15 +21,20 @@ Ext.application({
         'Ext.MessageBox',
         'TouchApp1.view.Login',
         'TouchApp1.view.Home',
+        'TouchApp1.view.Upload'
     ],
 
     views: [
         //'Main',
         'Login',
-        'Home'
+        'Home',
+        'Upload'
     ],
-    controllers:['Login'],
-
+    controllers:[
+        'Login',
+        'Home',
+        'Upload'
+    ],
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -52,8 +61,9 @@ Ext.application({
         //Ext.Viewport.add(Ext.create('TouchApp1.view.Main'));
         Ext.Viewport.add( [
             Ext.create('TouchApp1.view.Login'),
-            Ext.create('TouchApp1.view.Home')
-            ]);
+            Ext.create('TouchApp1.view.Home'),
+            Ext.create('TouchApp1.view.Upload')
+        ]);
     },
 
     onUpdated: function() {
