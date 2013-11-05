@@ -14,12 +14,17 @@ Ext.application({
     name: 'TouchApp1',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'TouchApp1.view.Login',
+        'TouchApp1.view.Home',
     ],
 
     views: [
-        'Main'
+        //'Main',
+        'Login',
+        'Home'
     ],
+    controllers:['Login'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -44,7 +49,11 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('TouchApp1.view.Main'));
+        //Ext.Viewport.add(Ext.create('TouchApp1.view.Main'));
+        Ext.Viewport.add( [
+            Ext.create('TouchApp1.view.Login'),
+            Ext.create('TouchApp1.view.Home')
+            ]);
     },
 
     onUpdated: function() {
