@@ -13,6 +13,9 @@ Ext.define('TouchApp1.controller.Login', {
             }
         }
     },
+    launch: function(){
+    	console.log('login controller launch');
+    },
     onSignInCommand: function(view, username, password ){
     	console.log( Ext.String.format('onSignInCommand -> username :{0} password :{0} ', username, password ));
 
@@ -30,8 +33,11 @@ Ext.define('TouchApp1.controller.Login', {
 	        message: 'Signing In...'
 	    });
 
+	    //Ext.data.JsonP.request({
 	    Ext.data.JsonP.request({
-	    	url : 'http://192.168.1.5/evolvic1/handlers/Login.ashx',
+	    	//url : 'http://192.168.1.5/evolvic1/handlers/Login.ashx',
+	    	//url : 'http://127.0.0.1:8080/Login.ashx',
+	    	url : 'http://192.168.1.3:8080/Login.ashx',
 	    	//callbackKey: 'callback',
 	    	params: {
 	            username: username,

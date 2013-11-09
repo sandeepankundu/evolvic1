@@ -23,6 +23,9 @@ Ext.application({
         'TouchApp1.view.Home',
         'TouchApp1.view.Upload'
     ],
+    viewport: {
+        autoMaximize: !Ext.browser.is.Standalone && Ext.os.is.iOS
+    },
 
     views: [
         //'Main',
@@ -54,6 +57,7 @@ Ext.application({
     },
 
     launch: function() {
+        console.log('App launch begin');
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
@@ -64,6 +68,7 @@ Ext.application({
             Ext.create('TouchApp1.view.Home'),
             Ext.create('TouchApp1.view.Upload')
         ]);
+        console.log('App launch end');
     },
 
     onUpdated: function() {

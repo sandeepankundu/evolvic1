@@ -10,7 +10,9 @@ Ext.define('TouchApp1.view.Upload', {
     requires: [
         'Ext.TitleBar',
         'Ext.Button',
-        'Ext.ux.Fileup'
+        'Ext.ux.Fileup',
+        'Ext.device.Notification',
+        'Ext.Img'
     ],
     //xtype: 'uploadview',
     /*config: {
@@ -21,6 +23,7 @@ Ext.define('TouchApp1.view.Upload', {
     	/*layout:{
     		type:'fit'
     	},*/
+        
     	items:[{
     		xtype:'titlebar',
     		title: 'Upload Image',
@@ -37,8 +40,18 @@ Ext.define('TouchApp1.view.Upload', {
             itemId: 'fileBtn',
             xtype: 'fileupload',
             autoUpload: false,
+            //url: 'http://192.168.1.5/evolvic1/handlers/Upload.ashx'
+            //url: 'http://127.0.0.1:8080/Upload.ashx'
             url: 'src/php/getfile.php'
-            
+            /*,listeners:[{
+                'failure' : function successFn (argument) {
+                    alert('uploading failed');
+                },
+                'success' : function successFn (argument) {
+                    alert('uploaded successfully');
+                }
+            }
+            ]*/
             // For success and failure callbacks setup look into controller
         }],
 	    listeners: [{

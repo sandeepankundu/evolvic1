@@ -485,7 +485,7 @@ Ext.define('Ext.ux.Fileup', {
         
         // Send form with file using XMLHttpRequest POST request
         http.open('POST', me.getUrl());
-        
+
         if (me.getSignRequestEnabled()) {
             
             // Sign the request and then send.

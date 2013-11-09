@@ -47,6 +47,7 @@ Ext.define('TouchApp1.view.Login', {
                                 placeHolder: 'Username',
                                 itemId: 'userNameTextField',
                                 name: 'userNameTextField',
+                                value: 'demo',
                                 required: true
                             },
                             {
@@ -54,6 +55,7 @@ Ext.define('TouchApp1.view.Login', {
                                 placeHolder: 'Password',
                                 itemId: 'passwordTextField',
                                 name: 'passwordTextField',
+                                value: 'demo',
                                 required: true
                             }
                         ]

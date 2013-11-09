@@ -14,6 +14,9 @@ Ext.define('TouchApp1.controller.Home', {
             }
         }
     },
+    launch: function(){
+        console.log('Home controller launch');
+    },
     onSignOffCommand: function(){
     	console.log(' --> onSignOffCommand >> Handler');
     	var loginView = this.getLoginView();

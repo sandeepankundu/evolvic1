@@ -7,21 +7,32 @@ Ext.define('TouchApp1.controller.Upload', {
             uploadView: 'uploadview',
             //mainMenuView: 'mainmenuview'
             //backButton : '#backButton'
+            'fileBtnCtl': 'uploadview #fileBtn'//,
+            //'fileLoadBtn': 'uploadview #fileLoadBtn',
+            //'loadedImage': 'Upload #loadedImage'
         },
         control: {
-            homeView: {
+            /*homeView: {
                 //signOffCommand: 'onSignOffCommand',
                 uploadCommand : 'onUploadCommand'
-            },
+            },*/
             uploadView:{
             	backcommand: 'onBackCommand'
-            	/*backButton:{
-	            	tap: 'onBackButtonTap'
-	            }*/	
-            }
+            },
             //backButton : 'onBackButtonTap'
-            
+            fileBtnCtl: {
+                success: 'onFileUploadSuccess',
+                failure: 'onFileUploadFailure'
+            }
+            /*,
+            fileLoadBtn: {
+                loadsuccess: 'onFileLoadSuccess',
+                loadfailure: 'onFileLoadFailure'
+            }*/
         }
+    },
+    launch: function(){
+        console.log('Upload controller launch');
     },
     onBackCommand:function (btn) {
     	console.log('Tap >> onBackCommand');
@@ -29,10 +40,41 @@ Ext.define('TouchApp1.controller.Upload', {
     	
     	Ext.Viewport.animateActiveItem(homeView, { type: 'slide', direction: 'right' });
     },
-    onBackButtonTap:function (btn) {
-    	console.log('Tap >> onBackButtonTap');
+    onFileUploadSuccess: function() {
+        //console.log('Success');
+        Ext.device.Notification.show({
+            title: 'All right',
+            message: 'File uploaded successfully',
+            buttons: Ext.MessageBox.OK,
+            callback: Ext.emptyFn
+        });
     },
-    onUploadCommand: function(){
-		console.log('Tap >> onUploadCommand');
+    
+    onFileUploadFailure: function(message) {
+        //console.log('Failure');
+        Ext.device.Notification.show({
+            title: 'Uploading error',
+            message: message,
+            buttons: Ext.MessageBox.OK,
+            callback: Ext.emptyFn
+        });
     }
+    /*,
+    onFileLoadSuccess: function(dataurl, e) {
+        //console.log('File loaded');
+        
+        var me = this;
+        var image = me.getLoadedImage();
+        image.setSrc(dataurl);
+    },
+
+    
+    onFileLoadFailure: function(message) {
+        Ext.device.Notification.show({
+            title: 'Loading error',
+            message: message,
+            buttons: Ext.MessageBox.OK,
+            callback: Ext.emptyFn
+        });
+    }*/
 });
