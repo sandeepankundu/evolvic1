@@ -1,4 +1,4 @@
-evolvic1
+evolvic - POC
 ========
 
 This project contains the UI that allows user to upload image and ability to view the images.
