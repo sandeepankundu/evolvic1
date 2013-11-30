@@ -19,6 +19,7 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'bootstrap.json', false);
+    //xhr.open('GET', 'app.json', false);
     xhr.send(null);
 
     var options = eval("(" + xhr.responseText + ")"),
@@ -140,7 +141,6 @@
         }
         return false;
     };
-
 
     for (i = 0,ln = styleSheets.length; i < ln; i++) {
         path = styleSheets[i];

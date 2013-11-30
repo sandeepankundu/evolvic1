@@ -39,19 +39,11 @@ Ext.define('TouchApp1.view.Upload', {
 	    {
             itemId: 'fileBtn',
             xtype: 'fileupload',
-            autoUpload: false,
+            //autoUpload: false,
+            autoUpload: true,
             //url: 'http://192.168.1.5/evolvic1/handlers/Upload.ashx'
             //url: 'http://127.0.0.1:8080/Upload.ashx'
             url: 'src/php/getfile.php'
-            /*,listeners:[{
-                'failure' : function successFn (argument) {
-                    alert('uploading failed');
-                },
-                'success' : function successFn (argument) {
-                    alert('uploaded successfully');
-                }
-            }
-            ]*/
             // For success and failure callbacks setup look into controller
         }],
 	    listeners: [{

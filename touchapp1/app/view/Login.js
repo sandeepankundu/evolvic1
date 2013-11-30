@@ -18,9 +18,6 @@ Ext.define('TouchApp1.view.Login', {
     ],
     config: {
         title: 'Login',
-        /*refs:{
-        	loginLockIcon : '#loginLockIcon'
-        },*/
         items: [
                     {
                         xtype: 'image',
@@ -47,7 +44,6 @@ Ext.define('TouchApp1.view.Login', {
                                 placeHolder: 'Username',
                                 itemId: 'userNameTextField',
                                 name: 'userNameTextField',
-                                value: 'demo',
                                 required: true
                             },
                             {
@@ -55,7 +51,6 @@ Ext.define('TouchApp1.view.Login', {
                                 placeHolder: 'Password',
                                 itemId: 'passwordTextField',
                                 name: 'passwordTextField',
-                                value: 'demo',
                                 required: true
                             }
                         ]
@@ -77,19 +72,17 @@ Ext.define('TouchApp1.view.Login', {
     },
     // Fires when the Panel is initialized
     initialize: function () {
-        //console.log('TouchApp1.view.Login ~ initialize');
         // Add a Listener. Listen for [Viewport ~ Orientation] Change.
-        Ext.Viewport.on('orientationchange', 'handleOrientationChange', this, {buffer: 50 });
+        //Ext.Viewport.on('orientationchange', 'handleOrientationChange', this, {buffer: 50 });
+        Ext.Viewport.on('orientationchange', function(){return false})
         this.callParent(arguments);
     },
     handleOrientationChange: function(){
-        //console.log('TouchApp1.view.Login ~ handleOrientationChange');
         var src= Ext.Viewport.getOrientation() == 'portrait' ? 'img/login.png' : 'img/login-small.png';
         var style = Ext.Viewport.getOrientation() == 'portrait' ? 'width:80px;height:80px;margin:auto;margin-top:10px;' : 'width:40px;height:40px;margin:auto;margin-top:10px;';
         var logImg = this.down('#loginLockIcon');// this.getComponent('loginLockIcon');
         logImg.setSrc( src );
         logImg.setStyle( style );
-        //Ext.Msg.alert('Login View', 'Orientation Change.', Ext.emptyFn);
         // Execute the code that needs to fire on Orientation Change.
     },
 	onLogInButtonTap: function () {

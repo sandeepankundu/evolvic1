@@ -242,6 +242,16 @@ Ext.define('Ext.ux.Fileup', {
          * @cfg {String} signHeader Signing token header name
          */
         signHeader: '',
+
+        /**
+         * @cfg {String} signHeader Signing token header
+         */
+        signWithTokenEnabled: false,
+
+        /**
+         * @cfg {String} signHeader Signing token header
+         */
+        signWithToken: '',
         
         /**
          * @cfg {Array} defaultSuccessCodes Http response success codes
@@ -484,8 +494,9 @@ Ext.define('Ext.ux.Fileup', {
         }
         
         // Send form with file using XMLHttpRequest POST request
-        http.open('POST', me.getUrl());
-
+        http.open('POST', me.getUrl() + '?_dc=' + new Date().getTime() );
+        console.log('1. me.getSignRequestEnabled() ' + me.getSignRequestEnabled());
+        console.log('2. localStorage.getItem("authtoken")' + localStorage.getItem("authtoken") );
         if (me.getSignRequestEnabled()) {
             
             // Sign the request and then send.
@@ -495,6 +506,17 @@ Ext.define('Ext.ux.Fileup', {
               http.send(me.getForm(file));
             });
         } else {
+            if (me.getSignWithTokenEnabled()) {
+                var header = me.getSignHeader(); 
+        
+                if (!header) {
+                    me.fireEvent('failure', 'Request signing header is not defined');
+                }
+                //http.setRequestHeader(); 
+                var token = "Basic " + btoa(localStorage.getItem("authtoken") + ":" + '');
+                http.setRequestHeader(header, token);
+                //http.setRequestHeader(header, me.getSignWithToken());
+            }
             http.send(me.getForm(file));
         }
         

@@ -71,9 +71,18 @@
      *      }
      */
     "css": [
+        /*{
+            "path": "touch/resources/css/base.css",
+            "update": "delta"
+        },*/
         {
             "path": "resources/css/app.css",
             "update": "delta"
+        },
+        {
+            "path": "resources/css/gallery.css",
+            "update": "delta"
+            //"update": "full"
         }
     ],
 
@@ -131,5 +140,6 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "8e393447-2573-4196-b43e-b07d176abfb9"
-}
+    "id": "8e393447-2573-4196-b43e-b07d176abfb9",
+        "SANKU" :"SANKU123"
+    }

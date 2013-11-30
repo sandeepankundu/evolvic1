@@ -18,11 +18,13 @@ Ext.application({
     name: 'TouchApp1',
 
     requires: [
+        'TouchApp1.config.Config',
         'Ext.MessageBox',
         'TouchApp1.view.Login',
         'TouchApp1.view.Home',
         'TouchApp1.view.Upload'
     ],
+
     viewport: {
         autoMaximize: !Ext.browser.is.Standalone && Ext.os.is.iOS
     },
@@ -57,7 +59,7 @@ Ext.application({
     },
 
     launch: function() {
-        console.log('App launch begin');
+        //console.log('App launch begin');
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
@@ -68,8 +70,9 @@ Ext.application({
             Ext.create('TouchApp1.view.Home'),
             Ext.create('TouchApp1.view.Upload')
         ]);
-        console.log('App launch end');
+        //console.log('App launch end');
     },
+    Info1 : 'hello hello',
 
     onUpdated: function() {
         Ext.Msg.confirm(
